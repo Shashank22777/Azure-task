@@ -52,7 +52,7 @@ variable "frontend_subnet_name" {
   type        = string
   default     = "frontend"
 }
- 
+
 variable "backend_subnet_name" {
   description = "Name for the backend subnet"
   type        = string
