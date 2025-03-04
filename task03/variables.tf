@@ -47,3 +47,14 @@ variable "replication_type" {
   type        = string
   description = "The replication type for the storage account."
 }
+variable "frontend_subnet_name" {
+  description = "Name for the frontend subnet"
+  type        = string
+  default     = "frontend"
+}
+ 
+variable "backend_subnet_name" {
+  description = "Name for the backend subnet"
+  type        = string
+  default     = "backend"
+}
