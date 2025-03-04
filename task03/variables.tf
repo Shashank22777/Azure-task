@@ -1,60 +1,80 @@
 variable "resource_group_name" {
   type        = string
-  description = "The name of the resource group in which all resources will be created."
-}
-
-variable "storage_account_name" {
-  type        = string
-  description = "The name of the storage account to be created."
-}
-
-variable "vnet_name" {
-  type        = string
-  description = "The name of the virtual network to be created."
+  default     = "cmaz-7850b25e-mod3-rg"
+  description = "The name of the resource group."
 }
 
 variable "location" {
   type        = string
-  description = "The Azure region in which to deploy the resources."
+  default     = "East US"
+  description = "The name of the location"
 }
 
-variable "tags" {
-  type        = map(string)
-  description = "The tags to apply to resources that support tagging."
+variable "storage_account_name" {
+  type        = string
+  default     = "cmaz7850b25esa"
+  description = "The name of the storage group."
 }
 
-variable "address_space_vnet" {
-  type        = list(string)
-  description = "The address space for the virtual network."
-}
-
-variable "subnet_frontend_prefixes" {
-  type        = list(string)
-  description = "Address prefixes for the frontend subnet."
-}
-
-variable "subnet_backend_prefixes" {
-  type        = list(string)
-  description = "Address prefixes for the backend subnet."
+variable "vnet_name" {
+  type        = string
+  default     = "cmaz-7850b25e-mod3-vnet"
+  description = "The name of the vnet."
 }
 
 variable "account_tier" {
   type        = string
   description = "The performance tier of the storage account."
+  default     = "Standard"
 }
 
-variable "replication_type" {
+variable "account_replication_type" {
   type        = string
-  description = "The replication type for the storage account."
+  description = "The replication type of the storage account."
+  default     = "GRS"
 }
+
+variable "vnet_address_space" {
+  description = "The address space for the virtual network."
+  type        = list(string)
+  default     = ["10.0.0.0/16"]
+}
+
+variable "frontend_subnet_prefix" {
+  description = "Address prefix for the frontend subnet."
+  type        = list(string)
+  default     = ["10.0.1.0/24"]
+}
+
+variable "backend_subnet_prefix" {
+  description = "Address prefix for the backend subnet."
+  type        = list(string)
+  default     = ["10.0.2.0/24"]
+}
+
 variable "frontend_subnet_name" {
-  description = "Name for the frontend subnet"
+  description = "The name of the frontend subnet."
   type        = string
   default     = "frontend"
 }
 
 variable "backend_subnet_name" {
-  description = "Name for the backend subnet"
+  description = "The name of the backend subnet."
   type        = string
   default     = "backend"
+}
+
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resources."
+  type        = map(string)
+  default = {
+    Creator = "bandari_shashank@epam.com"
+  }
+}
+
+
+variable "email" {
+  description = "Contact email address"
+  type        = string
 }
