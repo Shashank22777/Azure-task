@@ -8,5 +8,4 @@ subnet_frontend_prefixes = ["10.0.1.0/24"]
 subnet_backend_prefixes  = ["10.0.2.0/24"]
 account_tier             = "Standard"
 replication_type         = "LRS"
-
 tags                     = { Creator = "bandari_shashank@epam.com" }
